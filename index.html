@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة ألعاب الكلمات التفاعلية للأطفال 🌟</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f7ff;
+            text-align: center;
+            padding: 40px 20px;
+            margin: 0;
+        }
+
+        .header-container {
+            background: linear-gradient(135deg, #63b3ed, #4299e1);
+            color: white;
+            padding: 30px;
+            border-radius: 30px;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 20px rgba(66, 153, 225, 0.2);
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.4rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .menu-container {
+            max-width: 550px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* تصميم كرتوني مبهج ومريح للضغط بالأصابع للأزرار */
+        .game-button {
+            background: white;
+            color: #2b6cb0;
+            text-decoration: none;
+            padding: 22px 30px;
+            border-radius: 20px;
+            font-size: 1.35rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.04);
+            border: 3px solid #e2e8f0;
+            transition: all 0.25s ease;
+        }
+
+        .game-button:hover {
+            transform: translateY(-4px);
+            border-color: #4299e1;
+            background-color: #f7fafc;
+            box-shadow: 0 10px 20px rgba(66, 153, 225, 0.15);
+        }
+
+        .btn-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .emoji-icon {
+            font-size: 2rem;
+            background-color: #ebf8ff;
+            padding: 10px;
+            border-radius: 15px;
+            line-height: 1;
+        }
+
+        .arrow-icon {
+            font-size: 1.5rem;
+            color: #a0aec0;
+            transition: transform 0.2s;
+        }
+
+        .game-button:hover .arrow-icon {
+            color: #4299e1;
+            transform: translateX(-5px); /* حركة سهم لطيفة جهة اليمين/اليسار حسب الاتجاه */
+        }
+
+        /* تصميم الأزرار الرمادية للدروس القادمة (مغلقة مؤقتاً) */
+        .coming-soon {
+            background-color: #edf2f7;
+            color: #a0aec0;
+            border-color: #e2e8f0;
+            cursor: not-allowed;
+            pointer-events: none; /* تمنع الضغط */
+        }
+        .coming-soon .emoji-icon {
+            background-color: #e2e8f0;
+            filter: grayscale(100%);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>🌟 عالم ألعاب الإنجليزية 🌟</h1>
+        <p>اختر درسك الممتع وابدأ اللعب والتعلم الآن!</p>
+    </div>
+
+    <div class="menu-container">
+        
+        <a href="unit-1/lesson-1.html" class="game-button">
+            <div class="btn-left">
+                <span class="emoji-icon">👀👅</span>
+                <span>الوحدة 1: الدرس 1 (Our Senses)</span>
+            </div>
+            <span class="arrow-icon">◀</span>
+        </a>
+
+        <a href="#" class="game-button coming-soon">
+            <div class="btn-left">
+                <span class="emoji-icon">🔒</span>
+                <span>الوحدة 1: الدرس 2 (قريباً...)</span>
+            </div>
+            <span class="arrow-icon">🔒</span>
+        </a>
+
+    </div>
+
+</body>
+</html>
