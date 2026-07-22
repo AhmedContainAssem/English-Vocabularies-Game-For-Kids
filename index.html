@@ -17,20 +17,20 @@
             display: flex;
             align-items: center;
             
-            /* خلفية الصورة الشخصية */
+            /* تم إرجاع الاسم الأصلي بالضبط كما هو موجود على GitHub */
             background-image: linear-gradient(
                 rgba(15, 23, 42, 0.75), 
                 rgba(15, 23, 42, 0.85)
-            ), url("my-photo.png");
+            ), url("My photo.png"); 
             
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            background-color: #0f172a; /* لون احتياطي رائع في حالة تأخر تحميل الصورة */
+            background-color: #0f172a;
         }
 
-        /* الكارت الأبيض - تم إزاحته لليسار بخاصية margin-left: auto */
+        /* تصميم الكارت الأبيض وإزاحته للشمال */
         .container {
             max-width: 600px;
             width: 100%;
@@ -42,22 +42,22 @@
             text-align: center;
             border: 2px solid rgba(255, 255, 255, 0.2);
             
-            /* 👈 هذه الأسطر تجبر الكارت على البقاء في جهة اليسار (الشمال) تماماً */
+            /* إزاحة الكارت للجهة اليسرى لتفريغ الجهة اليمنى لصورتك */
             margin-right: auto;
-            margin-left: 5%; 
+            margin-left: 5%;
         }
 
-        /* للكمبيوتر والشاشات الكبيرة */
+        /* للشاشات الكبيرة (الكمبيوتر) */
         @media (min-width: 992px) {
             .container {
-                margin-left: 8%; /* مسافة ممتازة تضمن ترك الشق الأيمن كاملاً لصورتك */
+                margin-left: 8%; /* مسافة ممتازة تضمن ظهور وجهك تماماً على اليمين */
             }
         }
 
-        /* للشاشات الصغيرة والموبايل */
+        /* للشاشات الصغيرة (الموبايل) */
         @media (max-width: 768px) {
             .container {
-                margin: 0 auto; /* في الموبايل يرجع في المنتصف لراحة العين */
+                margin: 0 auto; /* يرجع في النص على الشاشات الصغيرة لتنسيق الموبايل */
             }
         }
 
