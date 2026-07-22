@@ -3,53 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة ألعاب اللغة الإنجليزية 🌟</title>
+    <title>Mr. Ahmed Assem - منصة الألعاب التفاعلية 🌟</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f7ff;
-            text-align: center;
-            padding: 50px 20px;
             margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            /* خلفية الصورة الشخصية مع طبقة إعتام لزيادة العمق وإبراز النصوص */
+            background-image: linear-gradient(
+                rgba(15, 23, 42, 0.75), 
+                rgba(15, 23, 42, 0.85)
+            ), url("file:///G:/ME/Gemini_Generated_Image_hh5uc6hh5uc6hh5u.png");
+            
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
+
         .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            max-width: 650px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 40px 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
-        h1 { color: #2b6cb0; font-size: 2.2rem; }
-        p { color: #4a5568; font-size: 1.2rem; margin-bottom: 30px; }
-        
-        /* تصميم الزرار اللي هيدخلهم على اللعبة */
+
+        /* رأس الصفحة والمعلومات الشخصية */
+        .teacher-title {
+            color: #1e3a8a;
+            font-size: 2.2rem;
+            margin: 0 0 5px 0;
+            font-weight: 800;
+        }
+
+        .slogan {
+            color: #d97706;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .phone {
+            display: inline-block;
+            background: #eff6ff;
+            color: #2563eb;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            direction: ltr;
+            border: 1px solid #bfdbfe;
+        }
+
+        .welcome-msg {
+            color: #475569;
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* أقسام الدروس */
+        .unit-section {
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .unit-title {
+            color: #0f172a;
+            font-size: 1.25rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .buttons-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* تصميم الأزرار التفاعلية */
         .play-btn {
-            display: block;
-            background: linear-gradient(135deg, #4299e1, #3182ce);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: white;
             text-decoration: none;
-            padding: 20px;
-            border-radius: 15px;
-            font-size: 1.4rem;
+            padding: 16px 20px;
+            border-radius: 16px;
+            font-size: 1.15rem;
             font-weight: bold;
-            box-shadow: 0 6px 12px rgba(49, 130, 206, 0.3);
-            transition: transform 0.2s;
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+            transition: all 0.25s ease;
         }
+
         .play-btn:hover {
-            transform: scale(1.03);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        }
+
+        /* الأزرار الفرعية للدرس الثاني */
+        .play-btn.sub-btn {
+            background: linear-gradient(135deg, #059669, #10b981);
+            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.25);
+        }
+
+        .play-btn.sub-btn:hover {
+            background: linear-gradient(135deg, #047857, #059669);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.35);
+        }
+
+        /* الأجزاء القادمة (مغلقة حالياً) */
+        .play-btn.disabled {
+            background: #e2e8f0;
+            color: #94a3b8;
+            box-shadow: none;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>🌟 منصة ألعاب الكلمات التفاعلية 🌟</h1>
-        <p>مرحباً بكم يا أبطال! اضغطوا على الزر بالأسفل لبدء اللعب والتعلم:</p>
+        <h1 class="teacher-title">Mr. Ahmed Assem</h1>
+        <div class="slogan">✨ Easy Peasy Ya Englezeey ✨</div>
+        <div class="phone">📞 01027131369</div>
 
-        <a href="unit-1/lesson-1.html" class="play-btn">
-            👀👅 ابدأ لعب: الدرس الأول (Our Senses)
-        </a>
+        <p class="welcome-msg">مرحباً بكم يا أبطال! اختر الدرس للبدء في التحدي وجمع النقاط 🎮</p>
+
+        <div class="unit-section">
+            <h2 class="unit-title">📘 Unit 1: Key Vocabulary & Habits</h2>
+            <div class="buttons-grid">
+                
+                <a href="unit-1/lesson-1.html" class="play-btn">
+                    <span>👀👅 الدرس الأول: Our Senses</span>
+                    <span class="badge">ابدأ اللعب 🎯</span>
+                </a>
+
+                <a href="unit-1/lesson-2-part1.html" class="play-btn sub-btn">
+                    <span>🏋️‍♂️ الدرس الثاني (جزء 1): Healthy Habits</span>
+                    <span class="badge">جديد 🌟</span>
+                </a>
+
+                <a href="#" class="play-btn disabled">
+                    <span>🍎 الدرس الثاني (جزء 2): Extra Vocabulary</span>
+                    <span class="badge" style="background: #cbd5e1; color: #64748b;">قريباً 🔒</span>
+                </a>
+
+                <a href="#" class="play-btn disabled">
+                    <span>⚡ الدرس الثاني (جزء 3): Verbs & Expressions</span>
+                    <span class="badge" style="background: #cbd5e1; color: #64748b;">قريباً 🔒</span>
+                </a>
+
+            </div>
+        </div>
     </div>
 
 </body>
