@@ -1,12 +1,195 @@
-// ==========================================
-// 📌 بيانات الجزء الأول (بعد تعديل الإيموجيز)
-// ==========================================
-const lessonData = {
-    title: "Unit 1 - Lesson 2: Healthy Habits (Part 1)",
-    description: "اختر العادة الصحية الصحيحة المناسبة للصورة والتعريف!",
-    sections: [
-        {
-            title: "✨ العادات الصحية الأساسية (Healthy Habits)",
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 - Lesson 2: Healthy Habits (Part 1)</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0f172a;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-container {
+            width: 100%;
+            max-width: 650px;
+            background: #1e293b;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid #334155;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #38bdf8;
+            font-size: 1.6rem;
+            margin: 0 0 10px 0;
+        }
+
+        .header p {
+            color: #94a3b8;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-between;
+            background: #0f172a;
+            padding: 10px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #f59e0b;
+        }
+
+        .question-card {
+            background: #334155;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .emoji-display {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            background: #1e293b;
+            color: #f8fafc;
+            border: 2px solid #475569;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            direction: ltr;
+        }
+
+        .option-btn:hover {
+            border-color: #38bdf8;
+            background: #0f172a;
+        }
+
+        .option-btn.correct {
+            background: #15803d !important;
+            border-color: #22c55e !important;
+            color: white;
+        }
+
+        .option-btn.wrong {
+            background: #b91c1c !important;
+            border-color: #ef4444 !important;
+            color: white;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            min-height: 30px;
+            text-align: center;
+        }
+
+        .feedback.success { color: #4ade80; }
+        .feedback.error { color: #f87171; }
+
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .back-btn {
+            background: #475569;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .next-btn {
+            background: #0284c7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <div class="header">
+            <h1 id="title">Unit 1 - Lesson 2</h1>
+            <p id="description">اختر العادة الصحية الصحيحة</p>
+        </div>
+
+        <div class="score-board">
+            <span>السؤال: <span id="current-q">1</span> / <span id="total-q">7</span></span>
+            <span>النقاط: <span id="score">0</span> 🌟</span>
+        </div>
+
+        <div class="question-card">
+            <span class="emoji-display" id="emoji">🪥🦷</span>
+            <div class="question-text" id="question">جاري تحميل السؤال...</div>
+            <div class="options-grid" id="options"></div>
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <div class="nav-controls">
+            <a href="../index.html" class="back-btn">⬅ العودة للرئيسية</a>
+            <button class="next-btn" id="next-btn" onclick="nextQuestion()">السؤال التالي ➔</button>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // 📌 بيانات الأسئلة
+        // ==========================================
+        const lessonData = {
+            title: "Unit 1 - Lesson 2: Healthy Habits (Part 1)",
+            description: "اختر العادة الصحية الصحيحة المناسبة للصورة والتعريف!",
             questions: [
                 {
                     id: "q1",
@@ -22,7 +205,7 @@ const lessonData = {
                 },
                 {
                     id: "q2",
-                    emoji: "🧼😊", // 👈 تم التغيير لصابونة ووش يضحك جميل!
+                    emoji: "🧼😊",
                     question: "ما العادة الموضحة في الصورة؟ (يغسل وجهه)",
                     options: [
                         { text: "wash face", isCorrect: true },
@@ -42,7 +225,7 @@ const lessonData = {
                         { text: "brush teeth", isCorrect: false }
                     ],
                     correctMsg: "بطل! ⏰ Wake up early تعني يستيقظ مبكراً (+10)",
-                    wrongMsg: "فكر متى نستيقظ للفيلم أو المدرسة!"
+                    wrongMsg: "فكر متى نستيقظ للمدرسة!"
                 },
                 {
                     id: "q4",
@@ -70,7 +253,7 @@ const lessonData = {
                 },
                 {
                     id: "q6",
-                    emoji: "🚿🛁", // 👈 هنا استحمّام مع دش وبانيو مميزين
+                    emoji: "🚿🛁",
                     question: "After playing sports, I ________ to stay clean. (يستحم)",
                     options: [
                         { text: "wake up early", isCorrect: false },
@@ -93,6 +276,81 @@ const lessonData = {
                     wrongMsg: "فكر في التمارين الرياضية!"
                 }
             ]
+        };
+
+        // ==========================================
+        // 🎮 تشغيل اللعبة
+        // ==========================================
+        let currentIndex = 0;
+        let score = 0;
+        let answered = false;
+
+        document.getElementById('title').textContent = lessonData.title;
+        document.getElementById('description').textContent = lessonData.description;
+        document.getElementById('total-q').textContent = lessonData.questions.length;
+
+        function loadQuestion() {
+            answered = false;
+            const q = lessonData.questions[currentIndex];
+            document.getElementById('current-q').textContent = currentIndex + 1;
+            document.getElementById('emoji').textContent = q.emoji;
+            document.getElementById('question').textContent = q.question;
+            document.getElementById('feedback').textContent = '';
+            document.getElementById('feedback').className = 'feedback';
+            document.getElementById('next-btn').style.display = 'none';
+
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt.text;
+                btn.onclick = () => checkAnswer(opt, btn, q);
+                optionsContainer.appendChild(btn);
+            });
         }
-    ]
-};
+
+        function checkAnswer(selectedOpt, btnElement, currentQ) {
+            if (answered) return;
+
+            const allButtons = document.querySelectorAll('.option-btn');
+
+            if (selectedOpt.isCorrect) {
+                answered = true;
+                btnElement.classList.add('correct');
+                score += 10;
+                document.getElementById('score').textContent = score;
+                
+                const feedback = document.getElementById('feedback');
+                feedback.textContent = currentQ.correctMsg;
+                feedback.className = 'feedback success';
+
+                document.getElementById('next-btn').style.display = 'inline-block';
+            } else {
+                btnElement.classList.add('wrong');
+                btnElement.disabled = true;
+                
+                const feedback = document.getElementById('feedback');
+                feedback.textContent = currentQ.wrongMsg;
+                feedback.className = 'feedback error';
+            }
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            if (currentIndex < lessonData.questions.length) {
+                loadQuestion();
+            } else {
+                document.querySelector('.question-card').innerHTML = `
+                    <h2>🎉 ألف مبروك يا بطل! 🎉</h2>
+                    <p style="font-size: 1.3rem;">أتممت الدرس بنجاح ورصيدك النهائي: <b style="color: #f59e0b;">${score}</b> نقطة!</p>
+                `;
+                document.getElementById('next-btn').style.display = 'none';
+            }
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>
