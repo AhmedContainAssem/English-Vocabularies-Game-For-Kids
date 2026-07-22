@@ -184,9 +184,6 @@
     </div>
 
     <script>
-        // ==========================================
-        // 📌 بيانات الجزء الأول (مع الاحتفاظ بـ sections)
-        // ==========================================
         const lessonData = {
             title: "Unit 1 - Lesson 2: Healthy Habits (Part 1)",
             description: "اختر العادة الصحية الصحيحة المناسبة للصورة والتعريف!",
@@ -228,7 +225,7 @@
                                 { text: "brush teeth", isCorrect: false }
                             ],
                             correctMsg: "بطل! ⏰ Wake up early تعني يستيقظ مبكراً (+10)",
-                            wrongMsg: "فكر متى نستيقظ للفيلم أو المدرسة!"
+                            wrongMsg: "فكر متى نستيقظ للمدرسة!"
                         },
                         {
                             id: "q4",
@@ -283,14 +280,10 @@
             ]
         };
 
-        // ==========================================
-        // 🎮 تشغيل اللعبة (يدعم وجود sections)
-        // ==========================================
         let currentIndex = 0;
         let score = 0;
         let answered = false;
 
-        // استخراج الأسئلة مباشرة من أول قسم
         const allQuestions = lessonData.sections[0].questions;
 
         document.getElementById('title').textContent = lessonData.title;
