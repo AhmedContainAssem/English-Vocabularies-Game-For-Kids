@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"> <head>
+<html lang="ar" dir="rtl">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr. Ahmed Assem - منصة الألعاب التفاعلية 🌟</title>
@@ -11,29 +12,27 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 40px; /* تم تظبيط البادينج */
+            padding: 40px 20px;
             min-height: 100vh;
-            
-            /* تم إعادة تعديل هذا الجزء لإزاحة المحتوى لليسار لضمان ظهور الوجه بوضوح */
             display: flex;
             align-items: center;
-            justify-content: flex-end; /* 👈 بما إن الصفحة RTL، فـ flex-end تعني اليسار */
             
-            /* خلفية الصورة الشخصية من GitHub مباشرة مع طبقة إعتام لزيادة العمق */
-            /* ⚠️ تأكد أن اسم ملف الصورة على GitHub هو my-photo.png حروف سمول تماماً وبدون مسافات */
+            /* خلفية الصورة الشخصية */
             background-image: linear-gradient(
                 rgba(15, 23, 42, 0.75), 
                 rgba(15, 23, 42, 0.85)
-            ), url("my-photo.png"); /* 👈 تم تعديل الاسم هنا ليطابق التغيير على GitHub */
+            ), url("my-photo.png");
             
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
+            background-color: #0f172a; /* لون احتياطي رائع في حالة تأخر تحميل الصورة */
         }
 
+        /* الكارت الأبيض - تم إزاحته لليسار بخاصية margin-left: auto */
         .container {
-            max-width: 650px;
+            max-width: 600px;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(8px);
@@ -42,6 +41,24 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             text-align: center;
             border: 2px solid rgba(255, 255, 255, 0.2);
+            
+            /* 👈 هذه الأسطر تجبر الكارت على البقاء في جهة اليسار (الشمال) تماماً */
+            margin-right: auto;
+            margin-left: 5%; 
+        }
+
+        /* للكمبيوتر والشاشات الكبيرة */
+        @media (min-width: 992px) {
+            .container {
+                margin-left: 8%; /* مسافة ممتازة تضمن ترك الشق الأيمن كاملاً لصورتك */
+            }
+        }
+
+        /* للشاشات الصغيرة والموبايل */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0 auto; /* في الموبايل يرجع في المنتصف لراحة العين */
+            }
         }
 
         /* رأس الصفحة والمعلومات الشخصية */
@@ -132,7 +149,7 @@
 
         .play-btn.sub-btn:hover {
             background: linear-gradient(135deg, #047857, #059669);
-            box-shadow: 0 10px 20px rgba(165, 185, 129, 0.35);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.35);
         }
 
         /* الأجزاء القادمة (مغلقة حالياً) */
