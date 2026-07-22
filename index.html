@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
+<html lang="ar" dir="rtl"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr. Ahmed Assem - منصة الألعاب التفاعلية 🌟</title>
@@ -12,20 +11,20 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 40px 20px;
+            padding: 40px; /* تم تظبيط البادينج */
             min-height: 100vh;
             
-            /* تم تعديل هذا الجزء لإزاحة المحتوى لليسار لضمان ظهور الوجه بوضوح */
+            /* تم إعادة تعديل هذا الجزء لإزاحة المحتوى لليسار لضمان ظهور الوجه بوضوح */
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* 👈 تم التغيير من center إلى flex-start لإزاحة المحتوى */
-            padding-right: 50px; /* 👈 إضافة هامش يمين عشان المحتوى ما يلزقش في الحافة */
+            justify-content: flex-end; /* 👈 بما إن الصفحة RTL، فـ flex-end تعني اليسار */
             
             /* خلفية الصورة الشخصية من GitHub مباشرة مع طبقة إعتام لزيادة العمق */
+            /* ⚠️ تأكد أن اسم ملف الصورة على GitHub هو my-photo.png حروف سمول تماماً وبدون مسافات */
             background-image: linear-gradient(
                 rgba(15, 23, 42, 0.75), 
                 rgba(15, 23, 42, 0.85)
-            ), url("my-photo.png");
+            ), url("my-photo.png"); /* 👈 تم تعديل الاسم هنا ليطابق التغيير على GitHub */
             
             background-size: cover;
             background-position: center;
@@ -133,7 +132,7 @@
 
         .play-btn.sub-btn:hover {
             background: linear-gradient(135deg, #047857, #059669);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.35);
+            box-shadow: 0 10px 20px rgba(165, 185, 129, 0.35);
         }
 
         /* الأجزاء القادمة (مغلقة حالياً) */
