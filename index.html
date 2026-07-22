@@ -12,66 +12,73 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             min-height: 100vh;
             display: flex;
             align-items: center;
             
-            /* تم إرجاع الاسم الأصلي بالضبط كما هو موجود على GitHub */
+            /* خلفية الصورة الشخصية */
             background-image: linear-gradient(
-                rgba(15, 23, 42, 0.75), 
-                rgba(15, 23, 42, 0.85)
+                rgba(15, 23, 42, 0.70), 
+                rgba(15, 23, 42, 0.80)
             ), url("My photo.png"); 
             
             background-size: cover;
-            background-position: center;
+            background-position: center top; /* ضبط تمركز الصورة من الأعلى */
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-color: #0f172a;
         }
 
-        /* تصميم الكارت الأبيض وإزاحته للشمال */
+        /* الكارت الأبيض الشفاف للمحتوى */
         .container {
-            max-width: 600px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 40px 30px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            max-width: 550px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             text-align: center;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             
-            /* إزاحة الكارت للجهة اليسرى لتفريغ الجهة اليمنى لصورتك */
-            margin-right: auto;
-            margin-left: 5%;
+            /* التوسيط الافتراضي للموبايل */
+            margin: 0 auto;
         }
 
-        /* للشاشات الكبيرة (الكمبيوتر) */
-        @media (min-width: 992px) {
+        /* 💻 إعدادات خاصة بالكمبيوتر والشاشات الكبيرة فقط (أكبر من 768px) */
+        @media (min-width: 768px) {
+            body {
+                padding: 40px;
+            }
+            
             .container {
-                margin-left: 8%; /* مسافة ممتازة تضمن ظهور وجهك تماماً على اليمين */
+                max-width: 600px;
+                padding: 40px 30px;
+                border-radius: 30px;
+                /* إزاحة الكارت للشمال في الكمبيوتر فقط */
+                margin-right: auto;
+                margin-left: 5%;
             }
         }
 
-        /* للشاشات الصغيرة (الموبايل) */
-        @media (max-width: 768px) {
+        @media (min-width: 1024px) {
             .container {
-                margin: 0 auto; /* يرجع في النص على الشاشات الصغيرة لتنسيق الموبايل */
+                margin-left: 8%; /* مسافة ممتازة للشاشات العريضة */
             }
         }
 
         /* رأس الصفحة والمعلومات الشخصية */
         .teacher-title {
             color: #1e3a8a;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             margin: 0 0 5px 0;
             font-weight: 800;
         }
 
         .slogan {
             color: #d97706;
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: bold;
             margin-bottom: 8px;
         }
@@ -80,37 +87,49 @@
             display: inline-block;
             background: #eff6ff;
             color: #2563eb;
-            padding: 6px 18px;
+            padding: 5px 15px;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             direction: ltr;
             border: 1px solid #bfdbfe;
         }
 
         .welcome-msg {
             color: #475569;
-            font-size: 1.15rem;
-            margin-bottom: 30px;
+            font-size: 1rem;
+            margin-bottom: 25px;
             line-height: 1.5;
+        }
+
+        /* أحجام الخطوط في الشاشات الكبيرة */
+        @media (min-width: 768px) {
+            .teacher-title { font-size: 2.2rem; }
+            .slogan { font-size: 1.3rem; }
+            .phone { font-size: 1.1rem; }
+            .welcome-msg { font-size: 1.15rem; }
         }
 
         /* أقسام الدروس */
         .unit-section {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             text-align: right;
         }
 
         .unit-title {
             color: #0f172a;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 8px;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .unit-title { font-size: 1.25rem; }
         }
 
         .buttons-grid {
@@ -127,12 +146,20 @@
             background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: white;
             text-decoration: none;
-            padding: 16px 20px;
-            border-radius: 16px;
-            font-size: 1.15rem;
+            padding: 14px 16px;
+            border-radius: 14px;
+            font-size: 1rem;
             font-weight: bold;
             box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
             transition: all 0.25s ease;
+        }
+
+        @media (min-width: 768px) {
+            .play-btn {
+                padding: 16px 20px;
+                border-radius: 16px;
+                font-size: 1.15rem;
+            }
         }
 
         .play-btn:hover {
@@ -163,9 +190,10 @@
 
         .badge {
             background: rgba(255, 255, 255, 0.25);
-            padding: 4px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
         }
     </style>
 </head>
