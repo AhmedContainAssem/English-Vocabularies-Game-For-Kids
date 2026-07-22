@@ -185,113 +185,121 @@
 
     <script>
         // ==========================================
-        // 📌 بيانات الأسئلة
+        // 📌 بيانات الجزء الأول (مع الاحتفاظ بـ sections)
         // ==========================================
         const lessonData = {
             title: "Unit 1 - Lesson 2: Healthy Habits (Part 1)",
             description: "اختر العادة الصحية الصحيحة المناسبة للصورة والتعريف!",
-            questions: [
+            sections: [
                 {
-                    id: "q1",
-                    emoji: "🪥🦷",
-                    question: "ما هي العادة الصحية الموضحة؟ (يغسل أسنانه)",
-                    options: [
-                        { text: "wash face", isCorrect: false },
-                        { text: "brush teeth", isCorrect: true },
-                        { text: "take a shower", isCorrect: false }
-                    ],
-                    correctMsg: "ممتاز! 🪥 Brush teeth تعني يغسل أسنانه (+10)",
-                    wrongMsg: "حاول مرة أخرى!"
-                },
-                {
-                    id: "q2",
-                    emoji: "🧼😊",
-                    question: "ما العادة الموضحة في الصورة؟ (يغسل وجهه)",
-                    options: [
-                        { text: "wash face", isCorrect: true },
-                        { text: "do exercises", isCorrect: false },
-                        { text: "play sports", isCorrect: false }
-                    ],
-                    correctMsg: "أحسنت! 🧼 Wash face تعني يغسل وجهه (+10)",
-                    wrongMsg: "ركز في غسيل الوجه!"
-                },
-                {
-                    id: "q3",
-                    emoji: "⏰☀️",
-                    question: "I ________ to be ready for school early. (يستيقظ مبكراً)",
-                    options: [
-                        { text: "drink plenty of water", isCorrect: false },
-                        { text: "wake up early", isCorrect: true },
-                        { text: "brush teeth", isCorrect: false }
-                    ],
-                    correctMsg: "بطل! ⏰ Wake up early تعني يستيقظ مبكراً (+10)",
-                    wrongMsg: "فكر متى نستيقظ للمدرسة!"
-                },
-                {
-                    id: "q4",
-                    emoji: "⚽🏃‍♂️",
-                    question: "To keep our bodies strong, we should ________. (يلعب رياضة)",
-                    options: [
-                        { text: "play sports", isCorrect: true },
-                        { text: "sleep late", isCorrect: false },
-                        { text: "wash face", isCorrect: false }
-                    ],
-                    correctMsg: "ممتاز جداً! ⚽ Play sports تعني يلعب رياضة (+10)",
-                    wrongMsg: "ركز في الحركة واللعب!"
-                },
-                {
-                    id: "q5",
-                    emoji: "💧🥤",
-                    question: "It is important to ________ every day. (يشرب الكثير من المياه)",
-                    options: [
-                        { text: "drink plenty of water", isCorrect: true },
-                        { text: "take a shower", isCorrect: false },
-                        { text: "do exercises", isCorrect: false }
-                    ],
-                    correctMsg: "رائع! 💧 Drink plenty of water (+10)",
-                    wrongMsg: "اختر الكلمة التي فيها water!"
-                },
-                {
-                    id: "q6",
-                    emoji: "🚿🛁",
-                    question: "After playing sports, I ________ to stay clean. (يستحم)",
-                    options: [
-                        { text: "wake up early", isCorrect: false },
-                        { text: "take a shower", isCorrect: true },
-                        { text: "brush teeth", isCorrect: false }
-                    ],
-                    correctMsg: "صح كدة! 🚿 Take a shower تعني يستحم (+10)",
-                    wrongMsg: "حاول مجدداً!"
-                },
-                {
-                    id: "q7",
-                    emoji: "🤸‍♂️🏋️‍♂️",
-                    question: "We ________ in the morning to stay active. (يتدرب / يتمرن)",
-                    options: [
-                        { text: "wash face", isCorrect: false },
-                        { text: "do exercises", isCorrect: true },
-                        { text: "drink plenty of water", isCorrect: false }
-                    ],
-                    correctMsg: "عبقري! 🤸‍♂️ Do exercises تعني يتمرن (+10)",
-                    wrongMsg: "فكر في التمارين الرياضية!"
+                    title: "✨ العادات الصحية الأساسية (Healthy Habits)",
+                    questions: [
+                        {
+                            id: "q1",
+                            emoji: "🪥🦷",
+                            question: "ما هي العادة الصحية الموضحة؟ (يغسل أسنانه)",
+                            options: [
+                                { text: "wash face", isCorrect: false },
+                                { text: "brush teeth", isCorrect: true },
+                                { text: "take a shower", isCorrect: false }
+                            ],
+                            correctMsg: "ممتاز! 🪥 Brush teeth تعني يغسل أسنانه (+10)",
+                            wrongMsg: "حاول مرة أخرى!"
+                        },
+                        {
+                            id: "q2",
+                            emoji: "🧼😊",
+                            question: "ما العادة الموضحة في الصورة؟ (يغسل وجهه)",
+                            options: [
+                                { text: "wash face", isCorrect: true },
+                                { text: "do exercises", isCorrect: false },
+                                { text: "play sports", isCorrect: false }
+                            ],
+                            correctMsg: "أحسنت! 🧼 Wash face تعني يغسل وجهه (+10)",
+                            wrongMsg: "ركز في غسيل الوجه!"
+                        },
+                        {
+                            id: "q3",
+                            emoji: "⏰☀️",
+                            question: "I ________ to be ready for school early. (يستيقظ مبكراً)",
+                            options: [
+                                { text: "drink plenty of water", isCorrect: false },
+                                { text: "wake up early", isCorrect: true },
+                                { text: "brush teeth", isCorrect: false }
+                            ],
+                            correctMsg: "بطل! ⏰ Wake up early تعني يستيقظ مبكراً (+10)",
+                            wrongMsg: "فكر متى نستيقظ للفيلم أو المدرسة!"
+                        },
+                        {
+                            id: "q4",
+                            emoji: "⚽🏃‍♂️",
+                            question: "To keep our bodies strong, we should ________. (يلعب رياضة)",
+                            options: [
+                                { text: "play sports", isCorrect: true },
+                                { text: "sleep late", isCorrect: false },
+                                { text: "wash face", isCorrect: false }
+                            ],
+                            correctMsg: "ممتاز جداً! ⚽ Play sports تعني يلعب رياضة (+10)",
+                            wrongMsg: "ركز في الحركة واللعب!"
+                        },
+                        {
+                            id: "q5",
+                            emoji: "💧🥤",
+                            question: "It is important to ________ every day. (يشرب الكثير من المياه)",
+                            options: [
+                                { text: "drink plenty of water", isCorrect: true },
+                                { text: "take a shower", isCorrect: false },
+                                { text: "do exercises", isCorrect: false }
+                            ],
+                            correctMsg: "رائع! 💧 Drink plenty of water (+10)",
+                            wrongMsg: "اختر الكلمة التي فيها water!"
+                        },
+                        {
+                            id: "q6",
+                            emoji: "🚿🛁",
+                            question: "After playing sports, I ________ to stay clean. (يستحم)",
+                            options: [
+                                { text: "wake up early", isCorrect: false },
+                                { text: "take a shower", isCorrect: true },
+                                { text: "brush teeth", isCorrect: false }
+                            ],
+                            correctMsg: "صح كدة! 🚿 Take a shower تعني يستحم (+10)",
+                            wrongMsg: "حاول مجدداً!"
+                        },
+                        {
+                            id: "q7",
+                            emoji: "🤸‍♂️🏋️‍♂️",
+                            question: "We ________ in the morning to stay active. (يتدرب / يتمرن)",
+                            options: [
+                                { text: "wash face", isCorrect: false },
+                                { text: "do exercises", isCorrect: true },
+                                { text: "drink plenty of water", isCorrect: false }
+                            ],
+                            correctMsg: "عبقري! 🤸‍♂️ Do exercises تعني يتمرن (+10)",
+                            wrongMsg: "فكر في التمارين الرياضية!"
+                        }
+                    ]
                 }
             ]
         };
 
         // ==========================================
-        // 🎮 تشغيل اللعبة
+        // 🎮 تشغيل اللعبة (يدعم وجود sections)
         // ==========================================
         let currentIndex = 0;
         let score = 0;
         let answered = false;
 
+        // استخراج الأسئلة مباشرة من أول قسم
+        const allQuestions = lessonData.sections[0].questions;
+
         document.getElementById('title').textContent = lessonData.title;
         document.getElementById('description').textContent = lessonData.description;
-        document.getElementById('total-q').textContent = lessonData.questions.length;
+        document.getElementById('total-q').textContent = allQuestions.length;
 
         function loadQuestion() {
             answered = false;
-            const q = lessonData.questions[currentIndex];
+            const q = allQuestions[currentIndex];
             document.getElementById('current-q').textContent = currentIndex + 1;
             document.getElementById('emoji').textContent = q.emoji;
             document.getElementById('question').textContent = q.question;
@@ -313,8 +321,6 @@
 
         function checkAnswer(selectedOpt, btnElement, currentQ) {
             if (answered) return;
-
-            const allButtons = document.querySelectorAll('.option-btn');
 
             if (selectedOpt.isCorrect) {
                 answered = true;
@@ -339,7 +345,7 @@
 
         function nextQuestion() {
             currentIndex++;
-            if (currentIndex < lessonData.questions.length) {
+            if (currentIndex < allQuestions.length) {
                 loadQuestion();
             } else {
                 document.querySelector('.question-card').innerHTML = `
